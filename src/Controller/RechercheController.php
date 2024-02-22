@@ -35,7 +35,16 @@ class RechercheController extends AbstractController
             'articles' => $articles,
         ]);
     }
-	
+	#[Route('/', name: 'login')]
+    public function loginAction(Request $request, LoggerInterface $logger): Response
+    {
+		return $this->redirectToRoute('login');
+    }
+    #[Route('/', name: 'CGU')]
+    public function cguAction(Request $request, LoggerInterface $logger): Response
+    {
+		return $this->redirectToRoute('CGU');
+    }
     #[Route('/afficheRechercheParMotCle', name: 'afficheRechercheParMotCle')]
     public function afficheRechercheParMotCleAction(Request $request): Response
     {

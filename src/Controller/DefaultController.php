@@ -31,15 +31,15 @@ class DefaultController extends AbstractController
         //    'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         //]);
 		return $this->redirectToRoute('afficheRecherche');
-    }/*
+    }
     #[Route('/', name: 'login')]
-    public function indexAction(Request $request, LoggerInterface $logger): Response
+    public function loginAction(Request $request, LoggerInterface $logger): Response
     {
 		return $this->redirectToRoute('login');
     }
     #[Route('/', name: 'CGU')]
-    public function indexAction(Request $request, LoggerInterface $logger): Response
+    public function cguAction(Request $request, LoggerInterface $logger): Response
     {
 		return $this->redirectToRoute('CGU');
-    }*/
+    }
 }
