@@ -32,4 +32,14 @@ class DefaultController extends AbstractController
         //]);
 		return $this->redirectToRoute('afficheRecherche');
     }
+    #[Route('/', name: 'login')]
+    public function indexAction(Request $request, LoggerInterface $logger): Response
+    {
+		return $this->redirectToRoute('login');
+    }
+    #[Route('/', name: 'CGU')]
+    public function indexAction(Request $request, LoggerInterface $logger): Response
+    {
+		return $this->redirectToRoute('CGU');
+    }
 }
