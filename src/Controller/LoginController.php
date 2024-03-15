@@ -24,14 +24,18 @@ class LoginController extends AbstractController
 	public function __construct(EntityManagerInterface $entityManager, LoggerInterface $logger)  {
 		$this->entityManager = $entityManager;
 		$this->logger = $logger;
+        $tokenStorage = $this->container->get('security.token_storage');
 	}
     
     #[Route('/login', name: 'login')]
     public function login(Request $request): Response
     {
-    if ($this->tokenStorage->getToken() && $this->tokenStorage->getToken()->getUser() instanceof User) {
-        return $this->redirectToRoute('homepage'); // Replace with your desired homepage route
-    }
+        if ($this->tokenStorage->getToken() && $this->tokenStorage->getToken() !== null) {
+            $user = $this->tokenStorage->getToken()->getUser();
+            if ($user instanceof User) {
+                return $this->redirectToRoute('homepage');
+            }
+        }
     
     
     $error = $this->authenticationUtils->getLastAuthenticationError();
