@@ -24,25 +24,25 @@ class LoginController extends AbstractController
 	public function __construct(EntityManagerInterface $entityManager, LoggerInterface $logger)  {
 		$this->entityManager = $entityManager;
 		$this->logger = $logger;
-        $tokenStorage = $this->container->get('security.token_storage');
+        //$tokenStorage = $this->container->get('security.token_storage');
 	}
     
     #[Route('/login', name: 'login')]
     public function login(Request $request): Response
     {
-        if ($this->tokenStorage->getToken() && $this->tokenStorage->getToken() !== null) {
+        /*if ($this->tokenStorage->getToken() && $this->tokenStorage->getToken() !== null) {
             $user = $this->tokenStorage->getToken()->getUser();
             if ($user instanceof User) {
                 return $this->redirectToRoute('homepage');
             }
-        }
+        }*/
     
     
-    $error = $this->authenticationUtils->getLastAuthenticationError();
+    //$error = $this->authenticationUtils->getLastAuthenticationError();
 
-    $loginForm = $this->createForm(LoginFormType::class); 
+    //$loginForm = $this->createForm(LoginFormType::class); 
 
-    
+    /*
     if ($request->isMethod('POST')) {
         $loginForm->handleRequest($request);
 
@@ -70,12 +70,11 @@ class LoginController extends AbstractController
             }
         }
     }
-
+    */
     // Render the login form template
     return $this->render('login.html.twig', [
-        'error' => $error,  // Pass error message to the template
-        'loginForm' => $loginForm->createView(),
+        //'error' => $error,  // Pass error message to the template
+        //'loginForm' => $loginForm->createView(),
     ]);
-
 }
 }
