@@ -26,12 +26,19 @@ class CGUController extends AbstractController
 		$this->logger = $logger;
         
 	}
-    
+    /*
     #[Route('/CGU', name: 'CGU')]
     public function CGU(Request $request): Response    {  
     return $this->render('CGU.html.twig', [
     ]);
     }
+    */
+    #[Route('/CGU', name: 'CGU')]
+    public function CGV(Request $request): Response    {  
+    return $this->render('CGU.html.twig', [
+    ]);
+    }
+
     #[Route('/CGV', name: 'CGV')]
     public function CGV(Request $request): Response    {  
     return $this->render('CGV.html.twig', [

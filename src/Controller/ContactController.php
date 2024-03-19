@@ -27,10 +27,9 @@ class ContactController extends AbstractController
 	}
     
     #[Route('/Contact', name: 'Contact')]
-    public function login(Request $request): Response
+    public function contact(Request $request): Response
     {
-        
     return $this->render('contact.html.twig', [
     ]);
-}
+    }
 }
