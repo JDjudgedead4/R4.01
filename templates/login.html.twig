@@ -32,13 +32,15 @@
                     </form>
 
                     <form method="POST" id="register-form" style="display: none;">
-                        <label for="new_username">Nouveau nom d'utilisateur:</label>
-                        <input type="text" id="new_username" name="new_username" required>
-
-                        <label for="new_password">Nouveau mot de passe:</label>
-                        <input type="password" id="new_password" name="new_password" required>
-
-                        <button type="submit">S'inscrire</button>
+                        <label for="username">Nom d'utilisateur:</label>
+                        <input type="text" id="username" name="username" required>
+                        <label for="password">Mot de passe:</label>
+                        <input type="password" id="password" name="password" required>
+                        <label for="mail">Adresse mail:</label>
+                        <input type="mail" id="mail" name="mail" required>
+                        <label for="tel">Numéro de téléphone:</label>
+                        <input type="tel" id="tel" name="tel" required>
+                        <button type="submit">S'inscirre</button>
                     </form>
 
                     <button id="toggle-form" type="button">Inscrivez-vous</button>
@@ -48,10 +50,27 @@
             <script type="text/javascript" src="/js/jquery-3.6.3.min.js"></script>
             <script>
                 $(document).ready(function() {
-                    $('#toggle-form').click(function() {
-                        $('#login-form').toggle();
-                        $('#register-form').toggle();
+                    const loginForm = $('#login-form');
+                    const registerForm = $('#register-form');
+                    const toggleButton = $('#toggle-form');
+
+                    // Update button text based on visible form
+                    updateButtonText();
+
+                    // Toggle forms and update button text on click
+                    toggleButton.click(function() {
+                        loginForm.toggle();
+                        registerForm.toggle();
+                        updateButtonText();
                     });
+
+                    function updateButtonText() {
+                        if (loginForm.is(':visible')) {
+                            toggleButton.text("vous n'avez pas encore de compte?");
+                        } else {
+                            toggleButton.text('vous avez déjà un compte?');
+                        }
+                    }
                 });
             </script>
             {% block javascripts %}

@@ -18,8 +18,7 @@ class LoginController extends AbstractController
 {
     private EntityManagerInterface $entityManager;
 	private LoggerInterface $logger; 
-    private $authenticationUtils;
-    private $tokenStorage;
+    
 	
 	public function __construct(EntityManagerInterface $entityManager, LoggerInterface $logger)  {
 		$this->entityManager = $entityManager;
