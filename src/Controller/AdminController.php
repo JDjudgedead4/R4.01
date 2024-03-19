@@ -31,7 +31,13 @@ class AdminController extends AbstractController
 		$this->entityManager = $entityManager;
 		$this->logger = $logger;
 	}
-	
+	#[Route('/admin', name: 'admin')]
+    public function admin(Request $request): Response
+    {
+		
+		return $this->render('admin.html.twig', [
+        ]);
+    }
     #[Route('/admin/musiques', name: 'adminMusiques')]
     public function adminMusiquesAction(Request $request): Response
     {
