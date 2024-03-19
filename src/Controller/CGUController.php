@@ -14,7 +14,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 
 
-class CGU extends AbstractController
+class CGUController extends AbstractController
 {
     private EntityManagerInterface $entityManager;
 	private LoggerInterface $logger; 
