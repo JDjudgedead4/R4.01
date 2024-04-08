@@ -21,7 +21,7 @@
             {% block body %}
                 <div id="login-form-container">
                     <h2>Vous connecter ou vous inscrire</h2>
-                    <form method="POST" id="login-form">
+                    <form method="POST" id="login-form" action="{{ path('login') }}" >
                         <label for="username">Nom d'utilisateur:</label>
                         <input type="text" id="username" name="username" required>
 
@@ -31,7 +31,7 @@
                         <button type="submit">Se connecter</button>
                     </form>
 
-                    <form method="POST" id="register-form" style="display: none;">
+                    <form method="POST" id="register-form" action="{{ path('Register') }}" style="display: none;">
                         <label for="username">Nom d'utilisateur:</label>
                         <input type="text" id="username" name="username" required>
                         <label for="password">Mot de passe:</label>
